@@ -1,11 +1,17 @@
 {
-    "name": "com.annulusgames.arch.unity",
-    "version": "0.1.6",
+    "name": "com.konh.arch.unity",
+    "version": "0.2.1",
     "displayName": "Arch.Unity",
     "description": "Arch ECS integration for Unity.",
     "unity": "2022.2",
     "author": {
-        "name": "Annulus Games",
-        "url": "https://annulusgames.com/"
-    }
+        "name": "KonH",
+        "url": "https://github.com/KonH/Arch.Unity"
+    },
+    "contributors": [
+        {
+            "name": "Annulus Games",
+            "url": "https://annulusgames.com/"
+        }
+    ]
 }

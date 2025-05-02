@@ -4,6 +4,11 @@
 
 Arch.Unity is a library that provides functionality to integrate [Arch](https://github.com/genaray/Arch), an ECS framework for C#, with Unity.
 
+## Fork notes
+
+Components removed:
+- **Conversion** and **Jobs** are not included in this fork.
+
 ## Why not Unity ECS?
 
 Unity provides an extremely fast ECS framework integrated into the Unity Editor through the Entities package. Additionally, there are packages available for physics and rendering functionalities that are compatible with Entities.
@@ -35,7 +40,7 @@ Arch is an ECS framework for C# that offers sufficient speed and allows the use 
 3. Enter the following URL:
 
 ```
-https://github.com/AnnulusGames/Arch.Unity.git?path=src/Arch.Unity/Assets/Arch.Unity
+https://github.com/KonH/Arch.Unity.git?path=src/Arch.Unity/Assets/Arch.Unity
 ```
 
 ## Package Structure
