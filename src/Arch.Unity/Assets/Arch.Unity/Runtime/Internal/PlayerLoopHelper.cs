@@ -3,7 +3,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.LowLevel;
 using PlayerLoopType = UnityEngine.PlayerLoop;
-using Arch.Unity.Jobs;
 using Arch.Unity.Toolkit;
 
 #if UNITY_EDITOR
@@ -55,10 +54,6 @@ namespace Arch.Unity
         {
             if (!eventsInitialized)
             {
-                // Initialize JobArchChunkHandle
-                JobArchChunkHandle.Initialize();
-                OnUpdate += JobArchChunkHandle.CheckHandles;
-
                 // Initialize Apps
                 OnInitialization += SystemRunner.Initialization.Run;
                 OnEarlyUpdate += SystemRunner.EarlyUpdate.Run;

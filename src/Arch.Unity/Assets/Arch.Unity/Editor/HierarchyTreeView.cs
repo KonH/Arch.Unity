@@ -4,7 +4,6 @@ using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using Arch.Core;
-using Arch.Unity.Conversion;
 
 namespace Arch.Unity.Editor
 {
@@ -96,7 +95,7 @@ namespace Arch.Unity.Editor
         protected override void RowGUI(RowGUIArgs args)
         {
             var item = (Item)args.item;
-            var disabled = TargetWorld.IsAlive(item.entityReference) && TargetWorld.Has<GameObjectDisabled>(item.entityReference);
+            var disabled = TargetWorld.IsAlive(item.entityReference);
 
             using (new EditorGUI.DisabledScope(disabled))
             {

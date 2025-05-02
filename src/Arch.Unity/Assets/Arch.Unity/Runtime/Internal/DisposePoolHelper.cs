@@ -1,5 +1,3 @@
-using Arch.Unity.Jobs;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #else
@@ -12,7 +10,6 @@ namespace Arch.Unity
     {
         static void Dispose()
         {
-            JobArchChunkHandle.Initialize();
             AllocatorPool.Dispose();
             GCHandlePool.Dispose();
         }

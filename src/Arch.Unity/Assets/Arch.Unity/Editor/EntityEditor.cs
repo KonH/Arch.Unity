@@ -4,7 +4,6 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using Unity.Collections;
-using Arch.Unity.Conversion;
 
 namespace Arch.Unity.Editor
 {
@@ -34,7 +33,7 @@ namespace Arch.Unity.Editor
 
             foreach (var component in proxy.world.GetAllComponents(proxy.entityReference))
             {
-                if (component is GameObjectReference or EntityConverter or EntityName) continue;
+                if (component is EntityName) continue;
 
                 var componentType = component.GetType();
                 if (!isExpandedDictionary.TryGetValue(componentType.FullName, out var isExpanded))
@@ -85,7 +84,6 @@ namespace Arch.Unity.Editor
                 using (new EditorGUILayout.VerticalScope())
                 {
                     var entityReference = selectionProxy.entityReference;
-                    var hasGameObject = selectionProxy.world.TryGet(entityReference, out GameObjectReference gameObjectReference);
                     var hasName = selectionProxy.world.TryGet(entityReference, out EntityName entityName);
 
                     using (new EditorGUILayout.HorizontalScope())
@@ -101,7 +99,7 @@ namespace Arch.Unity.Editor
                         EditorGUIUtility.labelWidth = 20f;
                     }
                     
-                    EditorGUILayout.ObjectField("From", hasGameObject ? gameObjectReference.GameObject : null, typeof(GameObject), true);
+                    EditorGUILayout.ObjectField("From", null, typeof(GameObject), true);
                 }
             }
             EditorGUIUtility.labelWidth = tmp;
