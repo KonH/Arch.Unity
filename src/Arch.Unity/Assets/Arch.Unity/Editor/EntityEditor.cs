@@ -88,11 +88,11 @@ namespace Arch.Unity.Editor
 
                     using (new EditorGUILayout.HorizontalScope())
                     {
-                        EditorGUILayout.TextField(hasName ? entityName.ToString() : $"Entity({entityReference.Entity.Id}:{entityReference.Version})");
+                        EditorGUILayout.TextField(hasName ? entityName.ToString() : $"Entity({entityReference.Id}:{entityReference.Version})");
 
                         EditorGUI.indentLevel++;
                         EditorGUIUtility.labelWidth = 15f;
-                        EditorGUILayout.IntField("Id", entityReference.Entity.Id, GUILayout.Width(80f));
+                        EditorGUILayout.IntField("Id", entityReference.Id, GUILayout.Width(80f));
                         EditorGUIUtility.labelWidth = 45f;
                         EditorGUILayout.IntField("Version", entityReference.Version, GUILayout.Width(90f));
                         EditorGUI.indentLevel--;

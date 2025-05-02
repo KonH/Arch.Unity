@@ -34,8 +34,8 @@ namespace Arch.Unity.Editor
             }
 
             public ItemType itemType;
-            public EntityReference entityReference;
             
+            public Entity entityReference;
         }
 
         public HierarchyTreeView(TreeViewState state) : base(state)
@@ -84,7 +84,7 @@ namespace Arch.Unity.Editor
 
             foreach (var chunk in TargetWorld.Query(new QueryDescription()))
             {
-                for (int i = 0; i < chunk.Size; i++)
+                for (int i = 0; i < chunk.Entities.Length; i++)
                 {
                     hierarchyRoot.AddChild(CreateItem(chunk.Entities[i]));
                 }
@@ -133,7 +133,7 @@ namespace Arch.Unity.Editor
 
         TreeViewItem CreateItem(Entity entity)
         {
-            var reference = TargetWorld.Reference(entity);
+            var reference = entity;
             var hasName = TargetWorld.TryGet(entity, out EntityName entityName);
             var item = Item.GetOrCreate();
             item.id = entity.Id;
