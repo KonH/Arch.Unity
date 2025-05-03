@@ -31,6 +31,11 @@ namespace Arch.Unity.Editor
             DrawHeader(proxy);
             DrawLine(Styles.LineColor);
 
+            if (!proxy.world.IsAlive(proxy.entityReference))
+            {
+	            return;
+            }
+
             foreach (var component in proxy.world.GetAllComponents(proxy.entityReference))
             {
                 if (component is EntityName) continue;
@@ -84,6 +89,10 @@ namespace Arch.Unity.Editor
                 using (new EditorGUILayout.VerticalScope())
                 {
                     var entityReference = selectionProxy.entityReference;
+                    if (!selectionProxy.world.IsAlive(entityReference))
+                    {
+	                    return;
+                    }
                     var hasName = selectionProxy.world.TryGet(entityReference, out EntityName entityName);
 
                     using (new EditorGUILayout.HorizontalScope())

@@ -86,7 +86,10 @@ namespace Arch.Unity.Editor
             {
                 for (int i = 0; i < chunk.Entities.Length; i++)
                 {
-                    hierarchyRoot.AddChild(CreateItem(chunk.Entities[i]));
+	                if (TargetWorld.IsAlive(chunk.Entities[i]))
+	                {
+		                hierarchyRoot.AddChild(CreateItem(chunk.Entities[i]));
+	                }
                 }
             }
             return root;
