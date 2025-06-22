@@ -1,4 +1,5 @@
 #if ARCH_UNITY_VCONTAINER_SUPPORT
+#nullable disable
 using System;
 using Arch.Core;
 using Arch.Unity.Toolkit;

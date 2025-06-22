@@ -1,4 +1,5 @@
 #if ARCH_UNITY_VCONTAINER_SUPPORT
+#nullable disable
 using System.Collections.Generic;
 using Arch.Unity.Toolkit;
 using VContainer;
