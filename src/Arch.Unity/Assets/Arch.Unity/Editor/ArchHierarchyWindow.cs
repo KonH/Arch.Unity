@@ -22,7 +22,7 @@ namespace Arch.Unity.Editor
 
         int selectedWorldId;
         HierarchyTreeView treeView;
-        TreeViewState treeViewState;
+        TreeViewState<int> treeViewState;
 
         // Component filtering state
         bool _filteringEnabled = false; // Explicitly disabled by default
@@ -33,7 +33,7 @@ namespace Arch.Unity.Editor
 
         void OnEnable()
         {
-            treeViewState = new TreeViewState();
+            treeViewState = new TreeViewState<int>();
             treeView = new HierarchyTreeView(treeViewState);
 
             EditorApplication.playModeStateChanged += OnPlayModeStateChanged;

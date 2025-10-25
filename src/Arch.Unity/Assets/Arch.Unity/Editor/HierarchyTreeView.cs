@@ -8,7 +8,7 @@ using Arch.Core;
 
 namespace Arch.Unity.Editor
 {
-    public sealed class HierarchyTreeView : TreeView, IDisposable
+    public sealed class HierarchyTreeView : TreeView<int>, IDisposable
     {
         public enum ItemType
         {
@@ -16,7 +16,7 @@ namespace Arch.Unity.Editor
             Entity
         }
 
-        public sealed class Item : TreeViewItem
+        public sealed class Item : TreeViewItem<int>
         {
             Item() { }
 
@@ -43,7 +43,7 @@ namespace Arch.Unity.Editor
         bool _filteringEnabled;
         List<Type> _selectedComponentTypes = new List<Type>();
 
-        public HierarchyTreeView(TreeViewState state) : base(state)
+        public HierarchyTreeView(TreeViewState<int> state) : base(state)
         {
 
         }
@@ -79,7 +79,7 @@ namespace Arch.Unity.Editor
         Item root;
         readonly List<Item> items = new();
 
-        protected override TreeViewItem BuildRoot()
+        protected override TreeViewItem<int> BuildRoot()
         {
             foreach (var item in items) Item.Return(item);
             items.Clear();
@@ -197,7 +197,7 @@ namespace Arch.Unity.Editor
             Selection.activeObject = currentSelection;
         }
 
-        TreeViewItem CreateItem(Entity entity)
+        TreeViewItem<int> CreateItem(Entity entity)
         {
             var reference = entity;
             var hasName = TargetWorld.TryGet(entity, out EntityName entityName);
